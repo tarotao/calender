@@ -6,13 +6,13 @@ import firebase from 'firebase';
 
 import Button from '../components/Button';
 
-export default function LogInScreen(props) {
+export default function SignupScreen(props) {
   const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handlePress() {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
         console.log(user.uid);
@@ -22,14 +22,14 @@ export default function LogInScreen(props) {
         });
       })
       .catch((error) => {
-        Alert.alert(error.code, error.message);
+        Alert.alert(error.code);
       });
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
-        <Text style={styles.title}>Log In</Text>
+        <Text style={styles.title}>Sign In</Text>
         <TextInput
           style={styles.input}
           value={email}
@@ -54,11 +54,11 @@ export default function LogInScreen(props) {
           onPress={handlePress}
         />
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Not registered?</Text>
+          <Text style={styles.footerText}>Already have acount?</Text>
           <TouchableOpacity onPress={() => {
             navigation.reset({
               index: 0,
-              routes: [{ name: 'signup' }],
+              routes: [{ name: 'pick' }],
             });
           }}
           >

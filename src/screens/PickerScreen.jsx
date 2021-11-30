@@ -8,6 +8,7 @@ export default function PickerScreen(props) {
       <Text>taro</Text>
       <Button
         title="戻る"
+        onPress={() => { navigation.navigate('login'); }}
       />
     </View>
   );
