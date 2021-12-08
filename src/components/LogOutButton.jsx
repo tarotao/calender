@@ -1,10 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import firebase from 'firebase';
-import useNavaigation from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function LogOutButton() {
-  const navigation = useNavaigation();
+  const navigation = useNavigation();
 
   const handlePress = () => {
     firebase.auth().signOut()
