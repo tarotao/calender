@@ -3,6 +3,7 @@ import {
   View,
   Button,
   Vibration,
+  AppState,
 } from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import LogOutButton from '../components/LogOutButton';
@@ -114,6 +115,7 @@ export default function PickerScreen(props) {
         title="止めるよ"
         onPress={() => {
           Vibration.cancel();
+          console.log(AppState.currentState);
         }}
       />
       <Button
